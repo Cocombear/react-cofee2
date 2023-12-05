@@ -7,25 +7,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.App {
-  background: white;
-  box-shadow: 0px 10px 20px black;
-  border-radius: 20px;
-  max-width: 1080px;
-  margin: 50px auto;
-}
-
 header {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid green;
 
   img {
     margin-right: 15px;
   }
 
-  h3,
-  p {
+  h3 {
     margin: 0;
   }
+  p {
+    margin: 0;
+    font-size: 10px;
+  }
+}
+
+.App {
+  background: white;
+  box-shadow: 0px 10px 20px black;
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 50px 60px 50px 500px;
 }
 
 .content {
@@ -33,6 +36,10 @@ header {
     margin: 0px;
   }
 
+  .contentItem{
+    flex-wrap: wrap;
+  }
+  
   .Search-block {
     border-radius: 20px;
     border: 1px solid green;
@@ -50,102 +57,20 @@ header {
   }
 }
 
-.card {
-  border: 1px solid rgba(0, 0, 0, 0.445);
-  padding: 20px;
-  width: 210px;
-  border-radius: 20px;
-  margin-right: 40px;
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-
-  &:hover {
-    box-shadow: 0px 14px 35px rgba($color: #000000, $alpha: 0.3);
-    transform: translateY(-5px);
-  }
-
-  .favorite {
-    cursor: pointer;
-    position: absolute;
-  }
-
-  h5 {
-    font-weight: 400;
-    font-size: 14px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    text-transform: uppercase;
-  }
-
-  span {
-    font-size: 13px;
-    opacity: 0.5;
-    text-transform: uppercase;
-  }
-
-  b {
-    font-size: 14px;
-  }
-
-  .button {
-    padding: 0px;
-    background: white;
-    border: 1px solid rgba(255, 255, 255, 0.445);
-    box-sizing: border-box;
-    border-radius: 8px;
-    height: 31px;
-    width: 31px;
-    cursor: pointer;
-  }
-}
-
-.blackButton {
-  height: 50px;
-  width: 100%;
-  background: black;
-  border-radius: 15px;
-  color: white;
-  border: 0;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
-
-  &:hover {
-    background: lighten(black, 5%);
-  }
-
-  &:active {
-    background: darken(#000000, 5%);
-  }
-}
-
-
-.overlay {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9;
-
-  h2 {
-    margin: 0px;
-  }
-
   .drawer {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     padding: 30px;
     width: 380px;
     height: 100%;
-    right: 0;
+    left: 0;
     bottom: 0;
     background: white;
-    box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.103);
+    box-shadow: 10px 4px 24px rgba(0, 0, 0, 0.103);
 
-    p {
-      margin-bottom: 0px;
+    h2 {
+      margin: 0px;
     }
 
     .cartHeader {
@@ -165,17 +90,14 @@ header {
       overflow: auto;
 
       .cartItem {
+        cursor: pointer;
+        width: 270px;
         padding: 15px;
-        border: 1px solid rgba(0, 0, 0, 0.445);
-        border-radius: 20px;
-
-        .removeBtn {
-          opacity: 0.5;
-          cursor: pointer;
-          transition: opacity 0.2s ease-in-out;
-
+        border: 1px solid green;
+        transition: 0.5s ease-in-out;
           &:hover {
-            opacity: 1;
+            background-color: green;
+            color: white;
           }
         }
       }
@@ -199,22 +121,29 @@ header {
         margin: 0px 7px;
       }
     }
-  }
 
-  .blackButton {
-    position: relative;
-
-    &:hover {
+    .blackButton {
+      position: relative;
+      height: 50px;
+      width: 100%;
+      background: green;
+      border-radius: 15px;
+      color: white;
+      border: 0;
+      cursor: pointer;
+    transition: background 0.2s ease-in-out;
+      &:hover {
+        img {
+          transform: translateX(15px);
+        }
+      }
+  
       img {
-        transform: translateX(15px);
+        position: absolute;
+        right: 45px;
+        top: 18px;
+        transition: transform 0.3s ease-in-out;
       }
     }
 
-    img {
-      position: absolute;
-      right: 45px;
-      top: 18px;
-      transition: transform 0.3s ease-in-out;
-    }
-  }
-}
+  
